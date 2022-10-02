@@ -1,0 +1,1 @@
+Today's class covered using Numbers, Strings, Objects, and Arrays to solve problems that come up frequently when programming. Along with inspecting, comparing, and modifying variables with loops and functions.  We also briefly went over call back and anonymous functions.
