@@ -105,9 +105,55 @@ function fizzBuzz() {
 }
 
 function findHappyNums() {
-    happyNum = 1;
-    for(i=1; i <= 15; i++) {
-        
+    let happyArray = []; //array of happy numbers
+    let tempArray = []; //temp array used in loop to check for repeating numbers 
+    let numLength = 0; //number of digits in number we are checking
+    let loopBool; //boolean to either stay in loop or leave
+    let checkNum; //variable for the number we are checking
+    let square = 1; //variable for square of number
+    let squareSum = 0; //variable for sum of squares of all digits
+    
+    //for loop which will check each number starting from 1 until we find 5 happy numbers
+    for(i=1; happyArray.length < 5; i++) {
+       checkNum = i;
+       loopBool = true;
+       tempArray = [];
+       console.log(`checking ${i}`);
+       //while loop to iterate through sum of squares of digits until either we find happy num or repeating pattern
+       while(loopBool) {
+         tempArray.push(checkNum);
+         numLength = Number(String(checkNum).length);
+         squareSum = 0;
+         //for loop to get sum of squares of the number
+         for(let i=0; i < numLength; i++) {
+            square = Number(String(checkNum)[i]);
+            square *= square;
+            squareSum += square;
+         }
+         if(squareSum === 1) { //if sum of squares is 1 then we found a happy number!
+            console.log(`${i} is a happy number!`);
+            happyArray.push(i);
+            loopBool = false;
+         } else if(tempArray.indexOf(squareSum) === -1) { //if the number was not one of the previous numbers checked, iterate again with new sum of squares
+            checkNum = squareSum;
+         } else { //if sum of squares was previously checked we have a repeating pattern and can exit the loop
+            console.log(`${i} is not a happy number`); 
+            loopBool = false;
+         }   
+       }
+    }
+    return(happyArray); //return the array of the first 5 happy numbers
+}
+
+function drawPattern() {
+    for(let i=1; i < 6; i++) {
+        let counter = i;
+        let prntStr = '';
+        while(counter > 0) {
+            prntStr += '*';
+            counter--;
+        }
+        console.log(prntStr);
     }
 }
 
@@ -143,8 +189,5 @@ const students = [
 
 //6 getGrades();
 //7 fizzBuzz();
-
-
-
-
-
+//8 console.log(findHappyNums());
+drawPattern();
