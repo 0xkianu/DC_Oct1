@@ -190,4 +190,4 @@ const students = [
 //6 getGrades();
 //7 fizzBuzz();
 //8 console.log(findHappyNums());
-drawPattern();
+//10 drawPattern();
