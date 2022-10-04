@@ -19,4 +19,17 @@ var mostWordsFound = function(sentences) {
     return (maxWords+1);
 };
 
+var buildArray = function(nums) {
+    let ans = [];
+    for(let i=0; i < nums.length; i++) {
+        ans[i] = nums[nums[i]];
+    }
+    return ans;
+};
 
+var getConcatenation = function(nums) {
+    let ans = nums.concat(nums);
+    return ans;
+};
+
+console.log(getConcatenation([1,2,1]));
